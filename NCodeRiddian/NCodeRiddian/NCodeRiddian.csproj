@@ -1,0 +1,173 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{42EFABAF-7EB3-490E-A2FA-D51A97BB81EC}</ProjectGuid>
+    <ProjectTypeGuids>{6D335F3A-9D43-41b4-9D22-F6F17C4BE596};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>NCodeRiddian</RootNamespace>
+    <AssemblyName>NCodeRiddian</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <XnaFrameworkVersion>v4.0</XnaFrameworkVersion>
+    <XnaPlatform>Windows</XnaPlatform>
+    <XnaProfile>HiDef</XnaProfile>
+    <XnaCrossPlatformGroupID>eb261c54-1dad-48a4-8fcd-f5ae73ee62b9</XnaCrossPlatformGroupID>
+    <XnaOutputType>Library</XnaOutputType>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\x86\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;WINDOWS</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoStdLib>true</NoStdLib>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <PlatformTarget>x86</PlatformTarget>
+    <XnaCompressContent>false</XnaCompressContent>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\x86\Release</OutputPath>
+    <DefineConstants>TRACE;WINDOWS</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoStdLib>true</NoStdLib>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <PlatformTarget>x86</PlatformTarget>
+    <XnaCompressContent>true</XnaCompressContent>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Xna.Framework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework.Game, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework.Graphics, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework.GamerServices, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework.Xact, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework.Video, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework.Avatar, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework.Net, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework.Storage, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="mscorlib">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Net">
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ActivePath.cs" />
+    <Compile Include="ArrayBuilder.cs" />
+    <Compile Include="ArrayHelper.cs" />
+    <Compile Include="ArrayManager.cs" />
+    <Compile Include="ArrayPather.cs" />
+    <Compile Include="Association.cs" />
+    <Compile Include="ControllerManager.cs" />
+    <Compile Include="NeuralNetwork.cs" />
+    <Compile Include="SigmoidNetwork\S_Brain.cs" />
+    <Compile Include="SigmoidNetwork\S_Neuron.cs" />
+    <Compile Include="BinarySearchTree.cs" />
+    <Compile Include="Camera.cs" />
+    <Compile Include="Cursor.cs" />
+    <Compile Include="FileReader.cs" />
+    <Compile Include="FOV.cs" />
+    <Compile Include="GlobalRandom.cs" />
+    <Compile Include="Heap.cs" />
+    <Compile Include="Image.cs" />
+    <Compile Include="ImageSet.cs" />
+    <Compile Include="IsoCamera.cs" />
+    <Compile Include="KeyboardInputManager.cs" />
+    <Compile Include="Mapper.cs" />
+    <Compile Include="MemSave.cs" />
+    <Compile Include="MenuScreen.cs" />
+    <Compile Include="MPE Package\BasicParticle.cs" />
+    <Compile Include="MPE Package\ColorSet.cs" />
+    <Compile Include="MPE Package\P_Entity.cs" />
+    <Compile Include="MPE Package\MicroParticle.cs" />
+    <Compile Include="MPE Package\ParticleEffect.cs" />
+    <Compile Include="MPE Package\ParticleSpawner.cs" />
+    <Compile Include="MultiCamera.cs" />
+    <Compile Include="NCRArray.cs" />
+    <Compile Include="oldnetwork\Network.cs" />
+    <Compile Include="BackrefNetwork\B_Brain.cs" />
+    <Compile Include="BackrefNetwork\B_Neuron.cs" />
+    <Compile Include="oldnetwork\Neuron.cs" />
+    <Compile Include="Noise.cs" />
+    <Compile Include="Pair.cs" />
+    <Compile Include="ParticleManager2.cs" />
+    <Compile Include="Path.cs" />
+    <Compile Include="Pathable.cs" />
+    <Compile Include="Pather.cs" />
+    <Compile Include="Pather2.cs" />
+    <Compile Include="Perlin_Old.cs" />
+    <Compile Include="Physics.cs" />
+    <Compile Include="Platformer\Tile.cs" />
+    <Compile Include="Platformer\World.cs" />
+    <Compile Include="PointM.cs" />
+    <Compile Include="PolyColider.cs" />
+    <Compile Include="Polygon.cs" />
+    <Compile Include="PolygonExtensions.cs" />
+    <Compile Include="PostProcessing.cs" />
+    <Compile Include="PulseNetwork\PulseBrain.cs" />
+    <Compile Include="PulseNetwork\PulseNeuron.cs" />
+    <Compile Include="RotatableRectangle.cs" />
+    <Compile Include="TextureManager.cs" />
+    <Compile Include="LocationManager.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Velocity.cs" />
+    <Compile Include="Web.cs" />
+    <Compile Include="WrappedText.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\PhysicsLib\PhysicsLib\PhysicsLib.csproj">
+      <Project>{A49CF20D-C6EF-46EA-9D40-FCD3D4EE3C19}</Project>
+      <Name>PhysicsLib</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\Microsoft.Xna.GameStudio.targets" />
+  <!--
+      To modify your build process, add your task inside one of the targets below and uncomment it. 
+      Other similar extension points exist, see Microsoft.Common.targets.
+      <Target Name="BeforeBuild">
+      </Target>
+      <Target Name="AfterBuild">
+      </Target>
+    -->
+</Project>

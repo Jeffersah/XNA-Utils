@@ -1,0 +1,16 @@
+C:\Users\great_000\Documents\Visual Studio 2010\Projects\NCodeRiddian\NCodeRiddian\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\great_000\Documents\Visual Studio 2010\Projects\NCodeRiddian\NCodeRiddian\bin\x86\Debug\NCodeRiddian.dll
+C:\Users\great_000\Documents\Visual Studio 2010\Projects\NCodeRiddian\NCodeRiddian\bin\x86\Debug\NCodeRiddian.pdb
+C:\Users\great_000\Documents\Visual Studio 2010\Projects\NCodeRiddian\NCodeRiddian\obj\x86\Debug\NCodeRiddian.dll
+C:\Users\great_000\Documents\Visual Studio 2010\Projects\NCodeRiddian\NCodeRiddian\obj\x86\Debug\NCodeRiddian.pdb
+C:\Users\great_000\Documents\Visual Studio 2010\Projects\NCodeRiddian\NCodeRiddian\bin\x86\Debug\PhysicsLib.dll
+C:\Users\great_000\Documents\Visual Studio 2010\Projects\NCodeRiddian\NCodeRiddian\bin\x86\Debug\PhysicsLib.pdb
+C:\Users\great_000\Documents\Visual Studio 2010\Projects\NCodeRiddian\NCodeRiddian\obj\x86\Debug\NCodeRiddian.csprojResolveAssemblyReference.cache
+C:\Users\NPH\Documents\Visual Studio 2010\Projects\NCodeRiddian\NCodeRiddian\bin\x86\Debug\NCodeRiddian.dll
+C:\Users\NPH\Documents\Visual Studio 2010\Projects\NCodeRiddian\NCodeRiddian\bin\x86\Debug\NCodeRiddian.pdb
+C:\Users\NPH\Documents\Visual Studio 2010\Projects\NCodeRiddian\NCodeRiddian\bin\x86\Debug\PhysicsLib.dll
+C:\Users\NPH\Documents\Visual Studio 2010\Projects\NCodeRiddian\NCodeRiddian\bin\x86\Debug\PhysicsLib.pdb
+C:\Users\NPH\Documents\Visual Studio 2010\Projects\NCodeRiddian\NCodeRiddian\obj\x86\Debug\NCodeRiddian.csprojResolveAssemblyReference.cache
+C:\Users\NPH\Documents\Visual Studio 2010\Projects\NCodeRiddian\NCodeRiddian\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\NPH\Documents\Visual Studio 2010\Projects\NCodeRiddian\NCodeRiddian\obj\x86\Debug\NCodeRiddian.dll
+C:\Users\NPH\Documents\Visual Studio 2010\Projects\NCodeRiddian\NCodeRiddian\obj\x86\Debug\NCodeRiddian.pdb
