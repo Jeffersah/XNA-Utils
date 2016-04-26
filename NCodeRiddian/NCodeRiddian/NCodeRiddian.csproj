@@ -154,12 +154,6 @@
     <Compile Include="Web.cs" />
     <Compile Include="WrappedText.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\PhysicsLib\PhysicsLib\PhysicsLib.csproj">
-      <Project>{A49CF20D-C6EF-46EA-9D40-FCD3D4EE3C19}</Project>
-      <Name>PhysicsLib</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\Microsoft.Xna.GameStudio.targets" />
   <!--

@@ -14,3 +14,9 @@ C:\Users\NPH\Documents\Visual Studio 2010\Projects\NCodeRiddian\NCodeRiddian\obj
 C:\Users\NPH\Documents\Visual Studio 2010\Projects\NCodeRiddian\NCodeRiddian\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 C:\Users\NPH\Documents\Visual Studio 2010\Projects\NCodeRiddian\NCodeRiddian\obj\x86\Debug\NCodeRiddian.dll
 C:\Users\NPH\Documents\Visual Studio 2010\Projects\NCodeRiddian\NCodeRiddian\obj\x86\Debug\NCodeRiddian.pdb
+C:\Users\great_000\Documents\git\XNA-Utils\NCodeRiddian\NCodeRiddian\bin\x86\Debug\NCodeRiddian.dll
+C:\Users\great_000\Documents\git\XNA-Utils\NCodeRiddian\NCodeRiddian\bin\x86\Debug\NCodeRiddian.pdb
+C:\Users\great_000\Documents\git\XNA-Utils\NCodeRiddian\NCodeRiddian\obj\x86\Debug\NCodeRiddian.csprojResolveAssemblyReference.cache
+C:\Users\great_000\Documents\git\XNA-Utils\NCodeRiddian\NCodeRiddian\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\great_000\Documents\git\XNA-Utils\NCodeRiddian\NCodeRiddian\obj\x86\Debug\NCodeRiddian.dll
+C:\Users\great_000\Documents\git\XNA-Utils\NCodeRiddian\NCodeRiddian\obj\x86\Debug\NCodeRiddian.pdb
