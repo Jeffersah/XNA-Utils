@@ -4,6 +4,9 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace NCodeRiddian
 {
+    /// <summary>
+    /// Formats text to wrap on screen
+    /// </summary>
     public class WrappedText
     {
         private List<string> lines;
@@ -20,6 +23,10 @@ namespace NCodeRiddian
             generate(str);
         }
 
+        /// <summary>
+        /// Changes the full width of the block of text
+        /// </summary>
+        /// <param name="wid"></param>
         public void changeSize(int wid)
         {
             lines.Clear();
@@ -27,6 +34,10 @@ namespace NCodeRiddian
             generate();
         }
 
+        /// <summary>
+        /// Alters the text
+        /// </summary>
+        /// <param name="str"></param>
         public void changeString(string str)
         {
             lines.Clear();

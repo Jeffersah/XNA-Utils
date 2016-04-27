@@ -7,6 +7,9 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace NCodeRiddian
 {
+    /// <summary>
+    /// Handles all content loading. Required for Images to work properly.
+    /// </summary>
     public abstract class TextureManager
     {
         private static List<TextureManagerDefinition> definitions = new List<TextureManagerDefinition>();
@@ -14,22 +17,38 @@ namespace NCodeRiddian
         private static bool debug = false;
         private static Texture2D generic;
 
+        /// <summary>
+        /// Returns a single white pixel, if setupGeneric has been called.
+        /// </summary>
+        /// <returns></returns>
         public static Texture2D getGeneric()
         {
             return generic;
         }
 
+        /// <summary>
+        /// Creates a generic texture (a single white pixel) to draw rectangles
+        /// </summary>
+        /// <param name="gd"></param>
         public static void setupGeneric(GraphicsDevice gd)
         {
             generic = new Texture2D(gd, 1, 1);
             generic.SetData<Color>(new Color[] { Color.White });
         }
 
+        /// <summary>
+        /// If true, will print debugging information to the output
+        /// </summary>
+        /// <param name="debug"></param>
         public static void setDebug(bool debug)
         {
             TextureManager.debug = debug;
         }
 
+        /// <summary>
+        /// Recursively searches all directories for images and loads them as texturemanagerdefinitions
+        /// </summary>
+        /// <param name="cm"></param>
         public static void loadAllImages(ContentManager cm)
         {
             foreach (string s in Directory.GetFiles("Content", "*", SearchOption.AllDirectories))
@@ -59,6 +78,11 @@ namespace NCodeRiddian
             }
         }
 
+        /// <summary>
+        /// Get a texture with a given file name, or null if none is found
+        /// </summary>
+        /// <param name="n"></param>
+        /// <returns></returns>
         public static Texture2D getTexture(string n)
         {
             foreach (TextureManagerDefinition tmd in definitions)
@@ -73,6 +97,11 @@ namespace NCodeRiddian
             return null;
         }
 
+        /// <summary>
+        /// Get a font with a given file name, or null if none is found
+        /// </summary>
+        /// <param name="n"></param>
+        /// <returns></returns>
         public static SpriteFont getFont(string n)
         {
             int idx = fontdefinitions.FindIndex(x => x.name.Equals(n));

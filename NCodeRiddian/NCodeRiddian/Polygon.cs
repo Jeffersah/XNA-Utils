@@ -6,20 +6,52 @@ using Microsoft.Xna.Framework;
 
 namespace NCodeRiddian
 {
+    /// <summary>
+    /// Generic polygon
+    /// </summary>
     public class Polygon
     {
         private static float ROOT2 = (float)Math.Sqrt(2);
 
+        /// <summary>
+        /// Defines the vertecies of a 2x2 square centered around the origin
+        /// </summary>
+        /// <returns></returns>
         public static Vector2[] SQUARE() {return new Vector2[] { new Vector2(-1, -1), new Vector2(1, -1), new Vector2(1, 1), new Vector2(-1, 1) };}
+        /// <summary>
+        /// Defines the vertecies of a unit square centered around the origin
+        /// </summary>
+        /// <returns></returns>
         public static Vector2[] UNIT_SQUARE() { return new Vector2[] { new Vector2(-.5f, -.5f), new Vector2(.5f, -.5f), new Vector2(.5f, .5f), new Vector2(-.5f, .5f) };}
+        /// <summary>
+        /// Defines the vertecies of a right triangle centered around the origin
+        /// </summary>
+        /// <returns></returns>
         public static Vector2[] RIGHT_TRIANGLE() { return new Vector2[] { new Vector2(-1, -1), new Vector2(1, 1), new Vector2(-1, 1) }; }
+        /// <summary>
+        /// Defines the vertecies of a regular octagon centered around the origin
+        /// </summary>
+        /// <returns></returns>
         public static Vector2[] OCTAGON() { return new Vector2[] { new Vector2(1 + ROOT2, 1), new Vector2(1, 1 + ROOT2), new Vector2(-1, 1 + ROOT2), new Vector2(-(1 + ROOT2), 1), new Vector2(-(1 + ROOT2), -1), new Vector2(-1, -(1 + ROOT2)), new Vector2(1, -(1 + ROOT2)), new Vector2(1 + ROOT2, -1) }; }
+
+        /// <summary>
+        /// Converts a rectangle into an equivalent polygon
+        /// </summary>
+        /// <param name="r"></param>
+        /// <returns></returns>
         public static Polygon GetFromRectangle(Rectangle r)
         {
             Polygon tmp = new Polygon(UNIT_SQUARE(), LocationManager.getVectorFromPoint(r.Center), 0);
             tmp.Scale(r.Width, r.Height);
             return tmp;
         }
+
+        /// <summary>
+        /// Converts a line into a polygonal approximation, defined as an infinitely thin rectangle
+        /// </summary>
+        /// <param name="A"></param>
+        /// <param name="B"></param>
+        /// <returns></returns>
         public static Polygon GetFromLine(Vector2 A, Vector2 B)
         {
             float ang = LocationManager.getRotation(A, B);
@@ -35,6 +67,10 @@ namespace NCodeRiddian
         private Rectangle simrect;
         private float area;
         private bool AreaGood;
+
+        /// <summary>
+        /// Gets the area of the polygon
+        /// </summary>
         public float Area
         {
             get
@@ -44,6 +80,10 @@ namespace NCodeRiddian
                 return area;
             }
         }
+
+        /// <summary>
+        /// Depricated. Use Bounds instead.
+        /// </summary>
         public Rectangle SimpleRectangle
         {
             get
@@ -51,6 +91,10 @@ namespace NCodeRiddian
                 return simrect;
             }
         }
+
+        /// <summary>
+        /// Returns the position of this polygon
+        /// </summary>
         public Vector2 Position
         {
             get{
@@ -64,6 +108,9 @@ namespace NCodeRiddian
                 position = value;
             }
         }
+        /// <summary>
+        /// Gets or sets the X value of this polygons position
+        /// </summary>
         public float X
         {
             get
@@ -77,6 +124,9 @@ namespace NCodeRiddian
                 position.X = value;
             }
         }
+        /// <summary>
+        /// Gets or sets the Y value of this polygons position
+        /// </summary>
         public float Y
         {
             get
@@ -92,6 +142,9 @@ namespace NCodeRiddian
         }
 
         private float rotation;
+        /// <summary>
+        /// Gets or sets polygonal rotation
+        /// </summary>
         public float Rotation
         {
             get
@@ -111,6 +164,9 @@ namespace NCodeRiddian
         Vector2[] RealCorners;
         bool TransformValid;
         private Rectangle bounds;
+        /// <summary>
+        /// Gets a rectangle that fully contains this polygon
+        /// </summary>
         public Rectangle Bounds
         {
             get
@@ -123,6 +179,10 @@ namespace NCodeRiddian
             }
         }
 
+        /// <summary>
+        /// Returns the number of sides of this polygon
+        /// </summary>
+        /// <returns></returns>
         public int NumberOfSides()
         {
             return RealCorners.Length;
@@ -200,6 +260,11 @@ namespace NCodeRiddian
             
         }
 
+        /// <summary>
+        /// Inflates a polygon by a given amount, ignoring rotation
+        /// </summary>
+        /// <param name="xamt"></param>
+        /// <param name="yamt"></param>
         public void Inflate(float xamt, float yamt)
         {
             for (int i = 0; i < corners.Length; i++)
@@ -212,14 +277,31 @@ namespace NCodeRiddian
             AreaGood = false;
         }
 
+        /// <summary>
+        /// Get the y value of the indexed corner in relation to polygon center, ignoring rotation
+        /// </summary>
+        /// <param name="i"></param>
+        /// <returns></returns>
         public float CornerX(int i)
         {
             return corners[i].X;
         }
+
+        /// <summary>
+        /// Get the y value of the indexed corner in relation to polygon center, ignoring rotation
+        /// </summary>
+        /// <param name="i"></param>
+        /// <returns></returns>
         public float CornerY(int i)
         {
             return corners[i].Y;
         }
+
+        /// <summary>
+        /// Sets the X value of a given corner in relation to polygon location, ignoring rotation
+        /// </summary>
+        /// <param name="i"></param>
+        /// <param name="x"></param>
         public void CornerX(int i, float x)
         {
             corners[i].X = x;
@@ -227,6 +309,11 @@ namespace NCodeRiddian
             TransformValid = false;
             AreaGood = false;
         }
+        /// <summary>
+        /// Sets the Y value of a given corner in relation to polygon location, ignoring rotation
+        /// </summary>
+        /// <param name="i"></param>
+        /// <param name="y"></param>
         public void CornerY(int i, float y)
         {
             corners[i].Y = y;
@@ -235,26 +322,43 @@ namespace NCodeRiddian
             AreaGood = false;
         }
 
-
+        /// <summary>
+        /// Return all this polygons real corners
+        /// </summary>
+        /// <returns></returns>
         public Vector2[] GetCorners()
         {
             if (!TransformValid)
                 applyTransform();
             return RealCorners;
         }
-
+        /// <summary>
+        /// Return a specific polygonal corner
+        /// </summary>
+        /// <param name="i"></param>
+        /// <returns></returns>
         public Vector2 GetCorner(int i)
         {
             if (!TransformValid)
                 applyTransform();
             return RealCorners[i];
         }
+        /// <summary>
+        /// Return a specific polygonal edge
+        /// </summary>
+        /// <param name="i"></param>
+        /// <returns></returns>
         public Vector2[] GetEdge(int i)
         {
             if (!TransformValid)
                 applyTransform();
             return new Vector2[]{RealCorners[(i)%RealCorners.Length],RealCorners[(i+1)%RealCorners.Length]} ;
         }
+
+        /// <summary>
+        /// Return all this polygons real edges
+        /// </summary>
+        /// <returns></returns>
         public List<Vector2[]> GetEdges()
         {
             Vector2[] Corns = GetCorners();
@@ -266,6 +370,11 @@ namespace NCodeRiddian
             return output;
         }
 
+        /// <summary>
+        /// Scales a polygon such that it exactly fits in the specified bounds, ignoring rotation
+        /// </summary>
+        /// <param name="X"></param>
+        /// <param name="Y"></param>
         public void Scale(float X, float Y)
         {
             float cX = simrect.Width;
@@ -280,16 +389,31 @@ namespace NCodeRiddian
             AreaGood = false;
         }
 
+        /// <summary>
+        /// Checks if two polygons colide using a rough check followed by a precise check if nessecary
+        /// </summary>
+        /// <param name="p"></param>
+        /// <returns></returns>
         public bool CheckColisions(Polygon p)
         {
             return CheckColisions_Rough(p) && CheckColisions_Accurate(p);
         }
 
+        /// <summary>
+        /// Check if the bounds of this polygon intersect the bounds of another.
+        /// </summary>
+        /// <param name="p"></param>
+        /// <returns>False if the polygons cannot be coliding, true if colision is possible</returns>
         public bool CheckColisions_Rough(Polygon p)
         {
             return Bounds.Intersects(p.Bounds);
         }
 
+        /// <summary>
+        /// Checks if two polygons are coliding (including encapsulation)
+        /// </summary>
+        /// <param name="p"></param>
+        /// <returns></returns>
         public bool CheckColisions_Accurate(Polygon p)
         {
             Vector2[] myCorners = GetCorners();
@@ -306,6 +430,11 @@ namespace NCodeRiddian
             return !CheckContains(p) || !p.CheckContains(this);
         }
 
+        /// <summary>
+        /// Gets a point at which two polygons are coliding, or null otherwise
+        /// </summary>
+        /// <param name="p"></param>
+        /// <returns></returns>
         public Vector2? CheckColisions_Accurate_GetPoint(Polygon p)
         {
             Vector2[] myCorners = GetCorners();
@@ -322,7 +451,7 @@ namespace NCodeRiddian
             return null;
         }
         /// <summary>
-        /// 
+        /// Gets an array of colision data including both polygon lines and the actual intersect point
         /// </summary>
         /// <param name="p"></param>
         /// <returns>[TgtLineStart, TgtLineEnd, MyLineStart, MyLineEnd, IntersectionPoint]</returns>
@@ -342,6 +471,11 @@ namespace NCodeRiddian
             return null;
         }
 
+        /// <summary>
+        /// Check if a polygon encapulates a point
+        /// </summary>
+        /// <param name="v"></param>
+        /// <returns></returns>
         public bool Contains(Vector2 v)
         {
             Vector2 limit = new Vector2(this.bounds.X - 2, this.bounds.Y - 2);
@@ -354,6 +488,11 @@ namespace NCodeRiddian
             return count % 2 == 1;
         }
 
+        /// <summary>
+        /// Check if a polygon fully cointains another polygon
+        /// </summary>
+        /// <param name="p"></param>
+        /// <returns></returns>
         private bool CheckContains(Polygon p)
         {
             Vector2 mine = GetCorners()[0];

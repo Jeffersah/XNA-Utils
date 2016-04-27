@@ -2,6 +2,10 @@
 
 namespace NCodeRiddian
 {
+    /// <summary>
+    /// Depricated dedicated multidimensional array
+    /// </summary>
+    /// <typeparam name="E"></typeparam>
     public class NCRArray<E>
     {
         private E[] behindArray;

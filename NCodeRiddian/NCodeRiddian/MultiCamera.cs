@@ -4,6 +4,9 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace NCodeRiddian
 {
+    /// <summary>
+    /// Class allowing for split screen using multiple cameras
+    /// </summary>
     public class MultiCamera
     {
         public Point CameraLocation;
@@ -15,8 +18,12 @@ namespace NCodeRiddian
         private RenderTarget2D personalTarget;
         private static bool isRunningRender;
 
+
         private static RenderTarget2D TOTAL;
 
+        /// <summary>
+        /// The current zoom of the camera, 1 being standard
+        /// </summary>
         public float zoom
         {
             get
@@ -30,6 +37,11 @@ namespace NCodeRiddian
             }
         }
 
+        /// <summary>
+        /// Must be called before any drawing is done
+        /// </summary>
+        /// <param name="screenSize">The size of the full screen</param>
+        /// <param name="gd">the current graphics device</param>
         public static void SETUP(Point screenSize, GraphicsDevice gd)
         {
             TOTAL = new RenderTarget2D(gd, screenSize.X, screenSize.Y, true, gd.PresentationParameters.BackBufferFormat, DepthFormat.Depth16, 0, RenderTargetUsage.PreserveContents);
@@ -45,6 +57,10 @@ namespace NCodeRiddian
             myZoom = 1;
         }
 
+        /// <summary>
+        /// Tries to keep the full camera view in rectangle r without changing the zoom level
+        /// </summary>
+        /// <param name="r"></param>
         public void assure(Rectangle r)
         {
             Rectangle myrec = getView();
@@ -60,6 +76,10 @@ namespace NCodeRiddian
             }
         }
 
+        /// <summary>
+        /// Moves the camera so that it's entire view fits in rectangle r. Zooms only if nessecary
+        /// </summary>
+        /// <param name="r"></param>
         public void advancedAssure(Rectangle r)
         {
             Rectangle myrec = getView();
@@ -75,32 +95,57 @@ namespace NCodeRiddian
             assure(r);
         }
 
+        /// <summary>
+        /// Centers the camera on a given point
+        /// </summary>
+        /// <param name="p"></param>
         public void Center(Point p)
         {
             CameraLocation.X = (int)(p.X - (ScreenLocation.Width / zoom / 2));
             CameraLocation.Y = (int)(p.Y - (ScreenLocation.Height / zoom / 2));
         }
 
+        /// <summary>
+        /// Centers the camera on a given vector
+        /// </summary>
+        /// <param name="p"></param>
         public void Center(Vector2 p)
         {
             Center(LocationManager.getPointFromVector(p));
         }
 
+        /// <summary>
+        /// Get the full view of the camera
+        /// </summary>
+        /// <returns>Full view space, accounting for zoom</returns>
         public Rectangle getView()
         {
             return MemSave.getr(CameraLocation.X, CameraLocation.Y, (int)Math.Round(ScreenLocation.Width / myZoom), (int)Math.Round(ScreenLocation.Height / myZoom));
         }
 
+        /// <summary>
+        /// Get the camera location on screen
+        /// </summary>
+        /// <returns></returns>
         public Rectangle GetScreenLocation()
         {
             return ScreenLocation;
         }
 
+        /// <summary>
+        /// Called immediately after SpriteBatch Begin to tell the multicamera to start drawing
+        /// </summary>
+        /// <param name="sb">The spritebatch</param>
         public void startRender(SpriteBatch sb)
         {
             startRender(sb, Color.CornflowerBlue);
         }
 
+        /// <summary>
+        /// Called immediately after SpriteBatch Begin to tell the multicamera to start drawing
+        /// </summary>
+        /// <param name="sb">The SpriteBatch</param>
+        /// <param name="clearColor">The color to clear the screen</param>
         public void startRender(SpriteBatch sb, Color clearColor)
         {
             if (isRunningRender)
@@ -116,6 +161,10 @@ namespace NCodeRiddian
             sb.Begin();
         }
 
+        /// <summary>
+        /// Called when this camera is done drawing, writes all camera data to the static rendertarget. Must be called before SpriteBatch.End
+        /// </summary>
+        /// <param name="sb">The spritebatch used to begin this call</param>
         public void endRender(SpriteBatch sb)
         {
             if (!isRunningRender)
@@ -132,11 +181,19 @@ namespace NCodeRiddian
             isRunningRender = false;
         }
 
+        /// <summary>
+        /// Finishes all multicamera rendering and returns the spritebatch target to the screen. Doesn't actually draw anything.
+        /// </summary>
+        /// <param name="sb"></param>
         public static void FINISH(SpriteBatch sb)
         {
             sb.GraphicsDevice.SetRenderTarget(null);
         }
 
+        /// <summary>
+        /// Called after FINISH, draws all data to the backbuffer
+        /// </summary>
+        /// <param name="sb"></param>
         public static void RENDER(SpriteBatch sb)
         {
             sb.Draw(TOTAL, MemSave.getr(0, 0, TOTAL.Width, TOTAL.Height), Color.White);

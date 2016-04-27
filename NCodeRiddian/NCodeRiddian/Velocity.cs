@@ -6,6 +6,9 @@ using Microsoft.Xna.Framework;
 
 namespace NCodeRiddian
 {
+    /// <summary>
+    /// Stores a velocity
+    /// </summary>
     public class Velocity
     {
         protected Vector2 xy;
@@ -18,6 +21,12 @@ namespace NCodeRiddian
         {
         }
 
+        /// <summary>
+        /// Create a velocity
+        /// </summary>
+        /// <param name="xm">The X value, or the magnitude</param>
+        /// <param name="ya">The Y value, or the angle</param>
+        /// <param name="isMA">TRUE if this velocity follows the [magnitude, angle] form, FALSE if it follows the [X, Y] form</param>
         public Velocity(float xm, float ya, bool isMA)
         {
             xy = new Vector2(xm, ya);
@@ -48,6 +57,9 @@ namespace NCodeRiddian
             }
         }
 
+        /// <summary>
+        /// Get or set the velocity as X and Y components
+        /// </summary>
         public Vector2 XY
         {
             get
@@ -65,6 +77,9 @@ namespace NCodeRiddian
             }
         }
 
+        /// <summary>
+        /// Get or set the velocity as Magnitude and Angle
+        /// </summary>
         public Vector2 MA
         {
             get
@@ -82,6 +97,9 @@ namespace NCodeRiddian
             }
         }
 
+        /// <summary>
+        /// Get or set the X component of this velocity
+        /// </summary>
         public float X
         {
             get
@@ -96,6 +114,10 @@ namespace NCodeRiddian
                 xy.X = value;
             }
         }
+
+        /// <summary>
+        /// Get or set the Y component of this velocity
+        /// </summary>
         public float Y
         {
             get
@@ -110,6 +132,10 @@ namespace NCodeRiddian
                 xy.Y = value;
             }
         }
+
+        /// <summary>
+        /// Get or set the magnitude of this velocity
+        /// </summary>
         public float M
         {
             get
@@ -124,6 +150,9 @@ namespace NCodeRiddian
                 ma.X = value;
             }
         }
+        /// <summary>
+        /// Get or set the angle of this velocity
+        /// </summary>
         public float A
         {
             get
@@ -139,26 +168,63 @@ namespace NCodeRiddian
             }
         }
 
+        /// <summary>
+        /// Returns the result of applying this motion to a point
+        /// </summary>
+        /// <param name="point"></param>
+        /// <returns></returns>
         public Vector2 Move(Vector2 point)
         {
             return new Vector2(point.X + XY.X, point.Y + XY.Y);
         }
+
+        /// <summary>
+        /// Returns the result of applying a factor of this motion to a point
+        /// </summary>
+        /// <param name="point"></param>
+        /// <param name="factor"></param>
+        /// <returns></returns>
         public Vector2 Move(Vector2 point, float factor)
         {
             return new Vector2(point.X + (factor * XY.X), point.Y + (factor * XY.Y));
         }
+
+        /// <summary>
+        /// Adds to velocities
+        /// </summary>
+        /// <param name="v"></param>
+        /// <param name="v2"></param>
+        /// <returns></returns>
         public static Velocity Add(Velocity v, Velocity v2)
         {
             return new Velocity(v.X + v2.X, v.Y + v2.Y, false);
         }
+        /// <summary>
+        /// Subtracts one velocity from another
+        /// </summary>
+        /// <param name="v"></param>
+        /// <param name="v2"></param>
+        /// <returns></returns>
         public static Velocity Subtract(Velocity v, Velocity v2)
         {
             return new Velocity(v.X - v2.X, v.Y - v2.Y, false);
         }
+        /// <summary>
+        /// Multiplies two velocities (XY)
+        /// </summary>
+        /// <param name="v"></param>
+        /// <param name="v2"></param>
+        /// <returns></returns>
         public static Velocity Mult(Velocity v, Velocity v2)
         {
             return new Velocity(v.X * v2.X, v.Y * v2.Y, false);
         }
+        /// <summary>
+        /// Divides two velocities (XY)
+        /// </summary>
+        /// <param name="v"></param>
+        /// <param name="v2"></param>
+        /// <returns></returns>
         public static Velocity Div(Velocity v, Velocity v2)
         {
             return new Velocity(v.X / v2.X, v.Y / v2.Y, false);

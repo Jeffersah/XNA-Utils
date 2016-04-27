@@ -5,6 +5,9 @@ using System.Text;
 
 namespace NCodeRiddian
 {
+    /// <summary>
+    /// Depricated. Use SigmoidNetwork.S_Brain instead
+    /// </summary>
     public abstract class NeuralNetwork
     {
         public abstract void Reset();

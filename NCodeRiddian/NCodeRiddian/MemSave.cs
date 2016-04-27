@@ -2,6 +2,9 @@
 
 namespace NCodeRiddian
 {
+    /// <summary>
+    /// A simple class that allows acces to a global rectangle or vector to prevent new ones from being made where they aren't nessecary
+    /// </summary>
     public abstract class MemSave
     {
         private static Rectangle save = new Rectangle(0, 0, 0, 0);

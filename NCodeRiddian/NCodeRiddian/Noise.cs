@@ -6,8 +6,17 @@ using System.Text;
 
 namespace NCodeRiddian
 {
+    /// <summary>
+    /// Provides noise and smoothing functions for 2D float arrays
+    /// </summary>
     public class Noise
     {
+        /// <summary>
+        /// Smooths an array by seting each value to the average of values within a square distance. Mutates the original array.
+        /// </summary>
+        /// <param name="flt">Array to smooth</param>
+        /// <param name="radius">Radius of smoothing</param>
+        /// <returns>Smoothed Array</returns>
         public static float[,] SimpleSmooth(float[,] flt, int radius)
         {
             for (int x = 0; x < flt.GetLength(0); x++)
@@ -29,6 +38,13 @@ namespace NCodeRiddian
             }
             return flt;
         }
+
+        /// <summary>
+        /// Multiplies each value by a given amount, centered around .5
+        /// </summary>
+        /// <param name="flt">Array to alter</param>
+        /// <param name="amt">Amount to change. 2 makes all values further from .5, .5 makes all values closer to .5</param>
+        /// <returns></returns>
         public static float[,] Emphasize(float[,] flt, float amt)
         {
             for (int x = 0; x < flt.GetLength(0); x++)
@@ -42,6 +58,12 @@ namespace NCodeRiddian
             }
             return flt;
         }
+
+        /// <summary>
+        /// Adjust this array such that its lowest value is 0 and its highest is 1, and all others are interpolated correctly in proportion to the original scaling
+        /// </summary>
+        /// <param name="flt"></param>
+        /// <returns></returns>
         public static float[,] MaximumContrast(float[,] flt)
         {
             float greatest = 0;
@@ -61,12 +83,24 @@ namespace NCodeRiddian
             return Multiply(flt, 1 / greatest);
         }
 
+        /// <summary>
+        /// Directly multiply every element in the array
+        /// </summary>
+        /// <param name="flt"></param>
+        /// <param name="amt"></param>
+        /// <returns></returns>
         public static float[,] Multiply(float[,] flt, float amt)
         {
             ArrayHelper.SetForEach<float>(flt, (x, y, a) => { return(float)MathHelper.Clamp(a * amt, 0, 1); });
             return flt;
         }
 
+        /// <summary>
+        /// Clumps values into smooth groups based on amt.
+        /// </summary>
+        /// <param name="flt"></param>
+        /// <param name="amt"></param>
+        /// <returns></returns>
         public static float[,] Clump(float[,] flt, float amt)
         {
             for (int x = 0; x < flt.GetLength(0); x++)
