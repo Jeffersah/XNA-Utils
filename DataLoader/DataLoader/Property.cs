@@ -22,7 +22,7 @@ namespace DataLoader
     public abstract class Property
     {
         public abstract object value();
-        public E value<E>()
+        public virtual E value<E>()
         {
             if(value() is E)
             {
@@ -67,6 +67,22 @@ namespace DataLoader
             value_i = s;
         }
 
+        public override E value<E>()
+        {
+            if (typeof(E) == typeof(double))
+            {
+                return (E)Convert.ChangeType(value_i, typeof(double));
+            }
+            else if (typeof(E) == typeof(float))
+            {
+                return (E)Convert.ChangeType(value_i, typeof(float));
+            }
+            else
+            {
+                return base.value<E>();
+            }
+        }
+
         public static implicit operator int(IntProperty s)
         {
             return s.value_i;
@@ -87,6 +103,17 @@ namespace DataLoader
         public DoubleProperty(double s)
         {
             value_d = s;
+        }
+        public override E value<E>()
+        {
+            if (typeof(E) == typeof(float))
+            {
+                return (E)Convert.ChangeType(value_d, typeof(float));
+            }
+            else
+            {
+                return base.value<E>();
+            }
         }
 
         public static implicit operator double(DoubleProperty s)
