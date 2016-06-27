@@ -75,9 +75,9 @@ namespace NCodeRiddian
     public class ControllerState
     {
         static Pair<Buttons, ControllerButton>[] CONVERT = {    new Pair<Buttons, ControllerButton>(Buttons.A, ControllerButton.A),
-                                                                new Pair<Buttons, ControllerButton>(Buttons.A, ControllerButton.B),
-                                                                new Pair<Buttons, ControllerButton>(Buttons.A, ControllerButton.X),
-                                                                new Pair<Buttons, ControllerButton>(Buttons.A, ControllerButton.Y),
+                                                                new Pair<Buttons, ControllerButton>(Buttons.B, ControllerButton.B),
+                                                                new Pair<Buttons, ControllerButton>(Buttons.X, ControllerButton.X),
+                                                                new Pair<Buttons, ControllerButton>(Buttons.Y, ControllerButton.Y),
                                                                new Pair<Buttons, ControllerButton>(Buttons.DPadUp, ControllerButton.Up),
                                                                 new Pair<Buttons, ControllerButton>(Buttons.DPadDown, ControllerButton.Down),
                                                                 new Pair<Buttons, ControllerButton>(Buttons.DPadLeft, ControllerButton.Left),
@@ -150,28 +150,28 @@ namespace NCodeRiddian
     }
 
     [Flags]
-    public enum ControllerButton : int
+    public enum ControllerButton : long
     {
         // Button Pad
-        A = 1,
-        B,
-        X,
-        Y,
+        A = 0x1,
+        B = 0x10,
+        X = 0x100,
+        Y = 0x1000,
         // Center
-        Select,
-        Start,
-        Big,
+        Select =    0x10000,
+        Start =     0x100000,
+        Big = 0x1000000,
         //D-Pad
-        Left,
-        Right,
-        Up,
-        Down,
+        Left = 0x10000000,
+        Right = 0x100000000,
+        Up = 0x1000000000,
+        Down = 0x10000000000,
         // Shoulders
-        LeftShoulder,
-        RightShoulder,
+        LeftShoulder = 0x100000000000,
+        RightShoulder = 0x1000000000000,
         // Stick presses
-        LeftStick,
-        RightStick
+        LeftStick = 0x10000000000000,
+        RightStick = 0x100000000000000
     }
 
     public class ControllerThumbstick

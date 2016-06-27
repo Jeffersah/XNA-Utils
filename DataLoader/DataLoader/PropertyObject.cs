@@ -51,6 +51,11 @@ namespace DataLoader
             MyProperties = new List<PropertyDefinition>();
         }
 
+        public void AddDefinition(PropertyDefinition pd)
+        {
+            MyProperties.Add(pd);
+        }
+
         public override object value()
         {
             return this;
