@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace NCodeRiddian
 {
@@ -21,6 +22,15 @@ namespace NCodeRiddian
         public static double NextBetween(double d1, double d2)
         {
             return d1 + (random.NextDouble() * (d2 - d1));
+        }
+
+        public static T RandomFrom<T>(T[] array)
+        {
+            return array[random.Next(array.Length)];
+        }
+        public static T RandomFrom<T>(List<T> array)
+        {
+            return array[random.Next(array.Count)];
         }
     }
 }
