@@ -101,6 +101,9 @@
     <Compile Include="ControllerManager.cs" />
     <Compile Include="GenericShapeHelper.cs" />
     <Compile Include="ImageTransform.cs" />
+    <Compile Include="Input\ActiveController.cs" />
+    <Compile Include="Input\GamePadStateManager.cs" />
+    <Compile Include="Input\SimulatedController.cs" />
     <Compile Include="NeuralNetwork.cs" />
     <Compile Include="SafeImage.cs" />
     <Compile Include="SigmoidNetwork\S_Brain.cs" />
@@ -115,7 +118,7 @@
     <Compile Include="Image.cs" />
     <Compile Include="ImageSet.cs" />
     <Compile Include="IsoCamera.cs" />
-    <Compile Include="KeyboardInputManager.cs" />
+    <Compile Include="Input\KeyboardInputManager.cs" />
     <Compile Include="Mapper.cs" />
     <Compile Include="MemSave.cs" />
     <Compile Include="MenuScreen.cs" />
