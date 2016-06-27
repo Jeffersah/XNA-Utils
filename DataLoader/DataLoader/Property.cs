@@ -17,6 +17,16 @@ namespace DataLoader
             this.name = name;
             this.value = value;
         }
+
+        public void ChangeProperty(Property prop)
+        {
+            value = prop;
+        }
+
+        public string Write()
+        {
+            return name + ": " + value.Write() + "\n";
+        }
     }
 
     public abstract class Property
@@ -31,6 +41,7 @@ namespace DataLoader
 
             throw new Exception("Type mismatch");
         }
+        public abstract string Write();
     }
 
     public class StringProperty : Property
@@ -52,6 +63,11 @@ namespace DataLoader
         public static implicit operator StringProperty(string s)
         {
             return new StringProperty(s);
+        }
+
+        public override string Write()
+        {
+            return value_s;
         }
     }
 
@@ -91,6 +107,11 @@ namespace DataLoader
         {
             return new IntProperty(s);
         }
+
+        public override string Write()
+        {
+            return value_i.ToString();
+        }
     }
 
     public class DoubleProperty : Property
@@ -124,6 +145,11 @@ namespace DataLoader
         {
             return new DoubleProperty(s);
         }
+
+        public override string Write()
+        {
+            return value_d.ToString();
+        }
     }
 
     public class Vector2Property : Property
@@ -146,6 +172,10 @@ namespace DataLoader
         {
             return new Vector2Property(s);
         }
+        public override string Write()
+        {
+            return value_v.X.ToString() + ", " + value_v.Y.ToString();
+        }
     }
 
     public class PointProperty : Property
@@ -167,6 +197,10 @@ namespace DataLoader
         public static implicit operator PointProperty(Point s)
         {
             return new PointProperty(s);
+        }
+        public override string Write()
+        {
+            return value_v.X.ToString() + ", " + value_v.Y.ToString();
         }
     }
 }

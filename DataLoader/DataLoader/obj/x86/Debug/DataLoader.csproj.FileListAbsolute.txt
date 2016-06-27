@@ -10,3 +10,8 @@ C:\Users\great_000\Documents\git\XNA-Utils\DataLoader\DataLoader\obj\x86\Debug\D
 C:\Users\great_000\Documents\git\XNA-Utils\DataLoader\DataLoader\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 C:\Users\great_000\Documents\git\XNA-Utils\DataLoader\DataLoader\obj\x86\Debug\DataLoader.dll
 C:\Users\great_000\Documents\git\XNA-Utils\DataLoader\DataLoader\obj\x86\Debug\DataLoader.pdb
+C:\Users\NPH\Documents\git\XNA-Utils\DataLoader\DataLoader\bin\x86\Debug\DataLoader.dll
+C:\Users\NPH\Documents\git\XNA-Utils\DataLoader\DataLoader\bin\x86\Debug\DataLoader.pdb
+C:\Users\NPH\Documents\git\XNA-Utils\DataLoader\DataLoader\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\NPH\Documents\git\XNA-Utils\DataLoader\DataLoader\obj\x86\Debug\DataLoader.dll
+C:\Users\NPH\Documents\git\XNA-Utils\DataLoader\DataLoader\obj\x86\Debug\DataLoader.pdb

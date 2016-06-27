@@ -22,3 +22,11 @@ C:\Users\great_000\Documents\git\XNA-Utils\NCodeRiddian\NCodeRiddian\obj\x86\Deb
 C:\Users\great_000\Documents\git\XNA-Utils\NCodeRiddian\NCodeRiddian\obj\x86\Debug\NCodeRiddian.pdb
 C:\Users\great_000\Documents\git\XNA-Utils\NCodeRiddian\NCodeRiddian\bin\x86\Debug\PhysicsLib.dll
 C:\Users\great_000\Documents\git\XNA-Utils\NCodeRiddian\NCodeRiddian\bin\x86\Debug\PhysicsLib.pdb
+C:\Users\NPH\Documents\git\XNA-Utils\NCodeRiddian\NCodeRiddian\bin\x86\Debug\NCodeRiddian.dll
+C:\Users\NPH\Documents\git\XNA-Utils\NCodeRiddian\NCodeRiddian\bin\x86\Debug\NCodeRiddian.pdb
+C:\Users\NPH\Documents\git\XNA-Utils\NCodeRiddian\NCodeRiddian\bin\x86\Debug\PhysicsLib.dll
+C:\Users\NPH\Documents\git\XNA-Utils\NCodeRiddian\NCodeRiddian\bin\x86\Debug\PhysicsLib.pdb
+C:\Users\NPH\Documents\git\XNA-Utils\NCodeRiddian\NCodeRiddian\obj\x86\Debug\NCodeRiddian.csprojResolveAssemblyReference.cache
+C:\Users\NPH\Documents\git\XNA-Utils\NCodeRiddian\NCodeRiddian\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\NPH\Documents\git\XNA-Utils\NCodeRiddian\NCodeRiddian\obj\x86\Debug\NCodeRiddian.dll
+C:\Users\NPH\Documents\git\XNA-Utils\NCodeRiddian\NCodeRiddian\obj\x86\Debug\NCodeRiddian.pdb

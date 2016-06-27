@@ -28,6 +28,7 @@ namespace DataLoader
             PropertyObject toGlobal = new PropertyObject();
             toGlobal.Load(fr);
             Global.Add(new PropertyDefinition(nameInGlobal,toGlobal));
+            fr.Finish();
         }
         public static PropertyObject Load(string fileLocation)
         {
@@ -35,6 +36,7 @@ namespace DataLoader
             fr.readLine();
             PropertyObject toGlobal = new PropertyObject();
             toGlobal.Load(fr);
+            fr.Finish();
             return toGlobal;
         }
 
@@ -117,6 +119,12 @@ namespace DataLoader
             return false;
         }
 
+
+        public PropertyDefinition GetField(string s)
+        {
+            return MyProperties.Find(x => x.name.Equals(s));
+        }
+
         public Property GetProperty(string s)
         {
             return MyProperties.Find(x => x.name.Equals(s)).value;
@@ -180,6 +188,22 @@ namespace DataLoader
             set
             {
             }
+        }
+        public override string Write()
+        {
+            string output = "\n{\n";
+            foreach (PropertyDefinition pd in MyProperties)
+            {
+                output += pd.Write();
+            }
+            output += "}";
+            return output;
+        }
+
+        public void WriteToContentFile(string fileloc)
+        {
+            string AllLines = Write().Substring(1);
+            System.IO.File.WriteAllText("Content\\" + fileloc, AllLines);
         }
     }
 

@@ -77,5 +77,10 @@ namespace DataLoader
         {
             return float.Parse(readNext());
         }
+
+        public void Finish()
+        {
+            read.Close();
+        }
     }
 }
