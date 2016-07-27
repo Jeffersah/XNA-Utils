@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
+using NCodeRiddian.Input;
 
 namespace NCodeRiddian
 {
@@ -69,6 +70,14 @@ namespace NCodeRiddian
         public Vector2 DeltaRightStick()
         {
             return Current.RightStick - Previous.RightStick;
+        }
+
+        public SimulatedState GetSimState()
+        {
+            if (this is SimulatedController)
+                return (SimulatedState)Current;
+            else
+                return null;
         }
     }
 
@@ -138,6 +147,10 @@ namespace NCodeRiddian
             rightTrigger = XNAState.Triggers.Right;
             leftStick.V = XNAState.ThumbSticks.Left;
             rightStick.V = XNAState.ThumbSticks.Right;
+            if (leftTrigger == 1)
+                buttons |= ControllerButton.LeftTrigger;
+            if (rightTrigger == 1)
+                buttons |= ControllerButton.RightTrigger;
         }
         public void Copy(ControllerState c)
         {
@@ -150,28 +163,30 @@ namespace NCodeRiddian
     }
 
     [Flags]
-    public enum ControllerButton : long
+    public enum ControllerButton : uint
     {
         // Button Pad
-        A = 0x1,
-        B = 0x10,
-        X = 0x100,
-        Y = 0x1000,
+        A = 1,
+        B = 2,
+        X = 4,
+        Y = 8,
         // Center
-        Select =    0x10000,
-        Start =     0x100000,
-        Big = 0x1000000,
+        Select = 16,
+        Start = 32,
+        Big = 64,
         //D-Pad
-        Left = 0x10000000,
-        Right = 0x100000000,
-        Up = 0x1000000000,
-        Down = 0x10000000000,
+        Left = 128,
+        Right = 256,
+        Up = 512 ,
+        Down  = 1024,
         // Shoulders
-        LeftShoulder = 0x100000000000,
-        RightShoulder = 0x1000000000000,
+        LeftShoulder = 1024 * 2,
+        RightShoulder = 1024 * 4,
         // Stick presses
-        LeftStick = 0x10000000000000,
-        RightStick = 0x100000000000000
+        LeftStick = 1024 * 8,
+        RightStick = 1024 * 16,
+        LeftTrigger = 1024 * 32,
+        RightTrigger = 1024 * 64,
     }
 
     public class ControllerThumbstick

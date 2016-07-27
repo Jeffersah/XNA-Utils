@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
-using PhysicsLib;
 
 namespace NCodeRiddian
 {
     public static class ParticleSpawner
-    {
+    {/*
         private static BasicParticle.move RandomMove;
         private static BasicParticle.move FireMove;
         private static BasicParticle.move SmokeMove;
@@ -167,7 +166,7 @@ namespace NCodeRiddian
         public static void addCustomMicro(Vector2 point, ColorSet c, BasicParticle.move move, int duration, ParticleEffect bpl)
         {
             bpl.Add(new MicroParticle(point, c.getRandomColor(), move, duration));
-        }
+        }*/
     }
 
     public class NoSetupException : Exception

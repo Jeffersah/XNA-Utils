@@ -175,6 +175,12 @@ namespace NCodeRiddian
         /// <returns></returns>
         public Vector2 Move(Vector2 point)
         {
+            if (MAReq || XYReq)
+            { 
+                Calculate();
+                MAReq = false;
+                XYReq = false;
+            }
             return new Vector2(point.X + XY.X, point.Y + XY.Y);
         }
 

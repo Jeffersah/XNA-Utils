@@ -79,8 +79,7 @@ namespace NCodeRiddian
                 return 1;
             else
                 return 0;
-        }
-
+        } 
         public static bool linesIntersect(Vector2 A, Vector2 B, Vector2 C, Vector2 D)
         {
             return MiniIntersect(A, B, C, D) && MiniIntersect(C, D, A, B);
@@ -181,6 +180,103 @@ namespace NCodeRiddian
                 pointOfIntersection.Y = (si1.X * pointOfIntersection.X) + si1.Y;
             }
             return pointOfIntersection;
+        }
+        public static Vector2? getIntersectionPointRaw(Vector2[] src, Vector2[] tgt)
+        {
+            Vector2 si1 = convertLineToSI(src);
+            Vector2 si2 = convertLineToSI(tgt);
+            Vector2 pointOfIntersection = new Vector2();
+
+            if (!float.IsInfinity(si1.X) && !float.IsInfinity(si2.X))
+            {
+                pointOfIntersection.X = (si2.Y - si1.Y) / (si1.X - si2.X);
+                pointOfIntersection.Y = (si1.X * pointOfIntersection.X) + si1.Y;
+            }
+            else if (!float.IsInfinity(si2.X))
+            {
+                pointOfIntersection.X = src[0].X;
+                pointOfIntersection.Y = (si2.X * pointOfIntersection.X) + si2.Y;
+            }
+            else if (!float.IsInfinity(si1.X))
+            {
+                pointOfIntersection.X = tgt[0].X;
+                pointOfIntersection.Y = (si1.X * pointOfIntersection.X) + si1.Y;
+            }
+            return pointOfIntersection;
+        }
+        public static bool Coterminal(Vector2 [] src, Vector2[] tgt)
+        {
+            Vector2 si1 = convertLineToSI(src);
+            Vector2 si2 = convertLineToSI(tgt);
+            if(si1.Equals(si2))
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public static Vector2? CoterminalFirst(Vector2[] Nonhit, Vector2[] Hit)
+        {
+            if (!Coterminal(Nonhit, Hit) || Nonhit[0] == Nonhit[1] || Hit[0] == Hit[1])
+                return null;
+
+            if(Nonhit[0].X < Nonhit[1].X)
+            {
+                if(Hit[0].X < Hit[1].X)
+                {
+                    return Hit[0];
+                }
+                else
+                {
+                    return Hit[1];
+                }
+            }
+            else if(Nonhit[0].X > Nonhit[1].X)
+            {
+                if (Hit[0].X > Hit[1].X)
+                {
+                    return Hit[0];
+                }
+                else
+                {
+                    return Hit[1];
+                }
+            }
+            else
+            {
+                if (Nonhit[0].Y < Nonhit[1].Y)
+                {
+                    if (Hit[0].Y < Hit[1].Y)
+                    {
+                        return Hit[0];
+                    }
+                    else
+                    {
+                        return Hit[1];
+                    }
+                }
+                else
+                {
+                    if (Hit[0].Y > Hit[1].Y)
+                    {
+                        return Hit[0];
+                    }
+                    else
+                    {
+                        return Hit[1];
+                    }
+                }
+            }
+        }
+
+        public static bool HalfCoterminal(Vector2 [] src, Vector2[] tgt)
+        {
+            Vector2 si1 = convertLineToSI(src);
+            Vector2 si2 = convertLineToSI(tgt);
+            return (    src[0].Y == si2.Y + si2.X * src[0].X ||
+                        src[1].Y == si2.Y + si2.X * src[1].X ||
+                        tgt[0].Y == si1.Y + si1.X * tgt[0].X ||
+                        tgt[1].Y == si1.Y + si1.X * tgt[1].X);
         }
 
         public static Vector2[] getReflectionLine(Vector2[] src, Vector2[] tgt)

@@ -35,10 +35,18 @@ namespace NCodeRiddian.Input
         public void SetLeftTrigger(float f)
         {
             base.leftTrigger = f;
+            if (leftTrigger == 1)
+                SetButtonDown(ControllerButton.LeftTrigger);
+            else
+                SetButtonUp(ControllerButton.LeftTrigger);
         }
         public void SetRightTrigger(float f)
         {
             base.rightTrigger = f;
+            if (rightTrigger == 1)
+                SetButtonDown(ControllerButton.RightTrigger);
+            else
+                SetButtonUp(ControllerButton.RightTrigger);
         }
         public void SetLeftStick(Vector2 v)
         {

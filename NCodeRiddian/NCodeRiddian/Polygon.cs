@@ -507,6 +507,27 @@ namespace NCodeRiddian
             return count % 2 == 0;
         }
 
+        public int CountIntersections(Vector2 A, Vector2 B)
+        {
+            int count = 0;
+            int cornerClips = 0;
+            foreach(Vector2 [] edge in GetEdges())
+            {
+                int type = LineManager.LinesIntersect(A, B, edge[0], edge[1]).Type;
+                if (type >= 2)
+                {
+                    count++;
+                }
+                else if(type == 1)
+                {
+                    count++;
+                    cornerClips++;
+                }
+            }
+            count -= cornerClips / 2;
+            return count;
+        }
+
         private void CalculateArea()
         {
             AreaGood = true;

@@ -111,6 +111,7 @@ namespace NCodeRiddian
                 {
                     Console.Out.WriteLine("Failure, No Definition for Name \"{0}\"", n);
                 }
+                return null;
             }
             return fontdefinitions[idx].font;
         }

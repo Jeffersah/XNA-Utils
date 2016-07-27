@@ -104,6 +104,7 @@
     <Compile Include="Input\ActiveController.cs" />
     <Compile Include="Input\GamePadStateManager.cs" />
     <Compile Include="Input\SimulatedController.cs" />
+    <Compile Include="LineManager.cs" />
     <Compile Include="NeuralNetwork.cs" />
     <Compile Include="SafeImage.cs" />
     <Compile Include="SigmoidNetwork\S_Brain.cs" />
